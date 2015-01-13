@@ -43,21 +43,26 @@ class akka {
 	    source => 'http://downloads.typesafe.com/akka/akka_2.10-2.3.8.zip?_ga=1.199506343.863568892.1419320473',
 	}
 
+	# give puppet user the priviledges to modify file
 	file { '/tmp/akka_2.10-2.3.8.zip':
-	  owner => root,
-	  group => root,
-	  mode  => 666
+		owner => root,
+	  	group => root,
+	  	mode  => 666
 	}
 
+	# set directory rights, should the rights be reverted?
 	file { '/opt':
 		ensure => "directory",
 	  	mode => 666
   	}
 
-	archive { 'akka_2.1-2.3.8': 
+  	# Unzip the archive
+	archive { 'akka_2.10-2.3.8': 
 	    target => '/opt',
 	    ensure => 'present',
 	    checksum => false,
+	    extension => 'zip',
 	    url => 'file://tmp/akka_2.10-2.3.8.zip',
+	    src_target => '/tmp'
 	}
 }
