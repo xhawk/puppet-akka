@@ -13,5 +13,8 @@ forge "https://forgeapi.puppetlabs.com"
 # mod 'puppetlabs-stdlib'
 
 # A module from git
+mod 'remote_file',
+  :git => 'git://github.com/lwf/puppet-remote_file.git'
+
 mod 'archive',
   :git => 'git://github.com/camptocamp/puppet-archive'

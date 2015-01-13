@@ -37,14 +37,15 @@
 #
 class akka {
 
-	package { "unzip":
-	    ensure => "installed"
+	remote_file { 'akka': 
+	    path => '/home/vagrant/akka_2.10-2.3.8.zip',
+	    ensure => 'present',
+	    source => 'http://downloads.typesafe.com/akka/akka_2.10-2.3.8.zip?_ga=1.199506343.863568892.1419320473',
 	}
 
-	archive { 'akka_2.10-2.3.8': 
+	archive { 'akka_2.1-2.3.8': 
 	    target => '/opt',
 	    ensure => 'present',
-	    extension => 'zip',
-	    url => 'http://downloads.typesafe.com/akka/akka_2.10-2.3.8.zip?_ga=1.199506343.863568892.1419320473',
+	    url => 'file://home/vagrant/akka_2.10-2.3.8.zip',
 	}
 }
