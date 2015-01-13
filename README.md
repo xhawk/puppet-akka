@@ -15,9 +15,8 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+Puppet module for downloading and installing Akka Standalone for Microkernel hosting 
+purposes. Developed against CentOS 6.2.
 
 ## Module Description
 

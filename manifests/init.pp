@@ -37,9 +37,9 @@
 #
 class akka {
 
-	remote_file { 'akka': 
-	    path => '/home/vagrant',
+	archive { 'akka_2.1-2.3.8': 
+	    target => '/opt',
 	    ensure => 'present',
-	    source => 'http://downloads.typesafe.com/akka/akka_2.10-2.3.8.zip?_ga=1.199506343.863568892.1419320473',
+	    url => 'http://downloads.typesafe.com/akka/akka_2.10-2.3.8.zip?_ga=1.199506343.863568892.1419320473',
 	}
 }
