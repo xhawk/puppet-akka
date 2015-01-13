@@ -37,6 +37,10 @@
 #
 class akka {
 
+	package { "unzip":
+	    ensure => "installed"
+	}
+
 	archive { 'akka_2.10-2.3.8': 
 	    target => '/opt',
 	    ensure => 'present',
