@@ -14,4 +14,4 @@ forge "https://forgeapi.puppetlabs.com"
 
 # A module from git
 mod 'archive',
-  :git => 'git://github.com/camptocamp/puppet-archive
+  :git => 'git://github.com/camptocamp/puppet-archive'
