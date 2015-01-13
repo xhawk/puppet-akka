@@ -49,9 +49,15 @@ class akka {
 	  mode  => 666
 	}
 
+	file { '/opt':
+		ensure => "directory",
+	  	mode => 666
+  	}
+
 	archive { 'akka_2.1-2.3.8': 
 	    target => '/opt',
 	    ensure => 'present',
+	    checksum => false,
 	    url => 'file://tmp/akka_2.10-2.3.8.zip',
 	}
 }
