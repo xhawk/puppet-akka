@@ -38,14 +38,20 @@
 class akka {
 
 	remote_file { 'akka': 
-	    path => '/home/vagrant/akka_2.10-2.3.8.zip',
+	    path => '/tmp/akka_2.10-2.3.8.zip',
 	    ensure => 'present',
 	    source => 'http://downloads.typesafe.com/akka/akka_2.10-2.3.8.zip?_ga=1.199506343.863568892.1419320473',
+	}
+
+	file { '/tmp/akka_2.10-2.3.8.zip':
+	  owner => root,
+	  group => root,
+	  mode  => 666
 	}
 
 	archive { 'akka_2.1-2.3.8': 
 	    target => '/opt',
 	    ensure => 'present',
-	    url => 'file://home/vagrant/akka_2.10-2.3.8.zip',
+	    url => 'file://tmp/akka_2.10-2.3.8.zip',
 	}
 }
