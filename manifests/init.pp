@@ -37,6 +37,10 @@
 #
 class akka {
 
+	package { "unzip":
+	    ensure => "installed"
+	}
+
 	remote_file { 'akka': 
 	    path => '/tmp/akka_2.10-2.3.8.zip',
 	    ensure => 'present',
