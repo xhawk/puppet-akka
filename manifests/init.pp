@@ -6,9 +6,9 @@
 #
 # Document parameters here.
 #
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
+# [*bootable*]
+#   This parameter is required. It specifies the full path to class that implements Bootable interface in the ActorSystem. 
+#   eg. org.package.Bootable
 #
 # === Variables
 #
@@ -35,7 +35,10 @@
 #
 # Copyright 2015 ???
 #
-class akka {
+class akka (
+	$bootable,
+	$lib_url
+	) {
 
 	package { "unzip":
 	    ensure => "installed"
@@ -74,6 +77,13 @@ class akka {
 		mode => 744
 	}
 
+	remote_file { 'actorSystem.jar': 
+	    path => '/opt/akka-2.3.8/lib/',
+	    ensure => 'present',
+	    source => $lib_url,
+	}
+
+	# This requires the bootable, should explode this class to smaller parts
 	file { "akkad":
     	path => "/etc/init.d/akkad",
     	content => template("akka/etc/init.d/akkad.erb"),
