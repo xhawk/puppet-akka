@@ -41,7 +41,7 @@ class akka (
 	) {
 
 	# TODO: Only for redhat family OSs
-	exec { '/usr/bin/yum install zip -y': }
+	exec { '/usr/bin/yum install unzip -y': }
 
 	#package { zip: }
 
