@@ -69,4 +69,16 @@ class akka {
 	    url => 'file://tmp/akka_2.10-2.3.8.zip',
 	    src_target => '/tmp'
 	}
+
+	file { '/opt/akka-2.3.8/bin/akka': 
+		mode => 644
+	}
+
+	# Create service
+	service { 'akkad':
+		ensure => true,
+		enable => true,
+		binary => "/opt/akka-2.3.8/bin/akka"
+
+	}
 }
