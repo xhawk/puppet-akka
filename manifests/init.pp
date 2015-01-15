@@ -83,7 +83,8 @@ class akka {
 	# Create service
 	service { 'akkad':
 		ensure => true,
-		enable => true
+		enable => true,
+		provider => 'init'
 
 	}
 }
