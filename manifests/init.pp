@@ -40,9 +40,10 @@ class akka (
 	$lib_url  = undef
 	) {
 
-	package { "unzip":
-	    ensure => "installed"
-	}
+	# TODO: Only for redhat family OSs
+	exec { '/usr/bin/yum install zip -y': }
+
+	#package { zip: }
 
 	remote_file { 'akka': 
 	    path => '/tmp/akka_2.10-2.3.8.zip',
@@ -93,7 +94,6 @@ class akka (
 	# Create service
 	service { 'akkad':
 		ensure => true,
-		enable => true,
 		provider => 'init'
 
 	}
