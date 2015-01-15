@@ -71,14 +71,18 @@ class akka {
 	}
 
 	file { '/opt/akka-2.3.8/bin/akka': 
-		mode => 644
+		mode => 744
 	}
+
+	file { "akkad":
+    	path => "/etc/init.d/akkad",
+    	content => template("akka/etc/init.d/akkad"),
+  	}
 
 	# Create service
 	service { 'akkad':
 		ensure => true,
-		enable => true,
-		binary => "/opt/akka-2.3.8/bin/akka"
+		enable => true
 
 	}
 }
