@@ -22,7 +22,7 @@
 #   of Puppet 2.6.)
 #
 # === Examples
-#
+# => 
 #  class { 'akka':
 #    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #  }
@@ -36,8 +36,8 @@
 # Copyright 2015 ???
 #
 class akka (
-	$bootable,
-	$lib_url
+	$bootable = undef,
+	$lib_url  = undef
 	) {
 
 	package { "unzip":
@@ -78,7 +78,7 @@ class akka (
 	}
 
 	remote_file { 'actorSystem.jar': 
-	    path => '/opt/akka-2.3.8/lib/',
+	    path => '/opt/akka-2.3.8/lib/actorSystem.jar',
 	    ensure => 'present',
 	    source => $lib_url,
 	}
