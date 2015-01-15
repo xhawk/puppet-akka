@@ -76,7 +76,8 @@ class akka {
 
 	file { "akkad":
     	path => "/etc/init.d/akkad",
-    	content => template("akka/etc/init.d/akkad"),
+    	content => template("akka/etc/init.d/akkad.erb"),
+    	mode => 755
   	}
 
 	# Create service
